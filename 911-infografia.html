@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>911 S.A.S. - Expertos en saneamiento y mantenimiento integral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-[#0077B6] text-white p-8 text-center shadow-lg flex flex-col items-center">
+        <h1 class="text-4xl md:text-5xl font-bold">911 S.A.S.</h1>
+        <p class="text-xl mt-2">Expertos en Saneamiento y Mantenimiento Integral</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-[#0077B6] mb-4">La importancia de las Cajillas de Inspección</h2>
+            <p class="max-w-3xl mx-auto text-lg">
+                Educar a nuestros suscriptores sobre el papel vital de las cajillas de inspección en las redes de alcantarillado sanitario. Un mantenimiento adecuado no solo cumple la normativa, sino que protege nuestra salud y el medio ambiente en el municipios de Valledupar.
+            </p>
+        </section>
+
+        <div class="space-y-12">
+
+            <section id="vitales" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center text-[#00B4D8] mb-6">🧐 ¿Qué son y por qué son Vitales?</h3>
+                <p class="text-center mb-8">Son accesos estratégicos a las redes subterráneas de alcantarillado, esenciales para la operación y mantenimiento del sistema. Sin ellas, la gestión de aguas residuales sería imposible.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-[#CAF0F8] p-6 rounded-lg">
+                        <span class="text-4xl">🔍</span>
+                        <h4 class="font-bold text-lg mt-2">Inspección y Limpieza</h4>
+                        <p>Facilitan el acceso para mantenimientos preventivos y correctivos.</p>
+                    </div>
+                    <div class="bg-[#CAF0F8] p-6 rounded-lg">
+                        <span class="text-4xl">🚦</span>
+                        <h4 class="font-bold text-lg mt-2">Puntos de Control</h4>
+                        <p>Permiten detectar y solucionar obstrucciones o daños en la red.</p>
+                    </div>
+                    <div class="bg-[#CAF0F8] p-6 rounded-lg">
+                        <span class="text-4xl">🔗</span>
+                        <h4 class="font-bold text-lg mt-2">Conexiones Seguras</h4>
+                        <p>Sirven para conectar las acometidas domiciliarias a la red principal.</p>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-6">
+                    <h4 class="font-bold text-lg text-center mb-4">Base Legal y Normativa</h4>
+                    <p class="text-center text-sm text-gray-600">Su construcción y mantenimiento están regulados por la Resolución 0330 de 2017 (RAS), la Ley 142 de 1994 y el Decreto 302 de 2000, garantizando la calidad y seguridad del servicio.</p>
+                </div>
+            </section>
+
+            <section id="diseno" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center text-[#00B4D8] mb-6">📐 Diseño y Construcción: Estándares Colombianos</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="mb-4">El diseño de las cajillas sigue estrictos estándares para asegurar su hermeticidad y durabilidad. Deben ser construidas con materiales resistentes a la corrosión y, si están en vías, soportar cargas vehiculares.</p>
+                        <ul class="space-y-4">
+                            <li class="p-4 bg-gray-100 rounded-lg">
+                                <p class="font-bold">Caja Tipo 1:</p>
+                                <p>Sección interna de 0.60m x 0.60m y hasta 1.00m de profundidad.</p>
+                            </li>
+                            <li class="p-4 bg-gray-100 rounded-lg">
+                                <p class="font-bold">Caja Tipo 2:</p>
+                                <p>Sección interna de 0.80m x 0.80m y hasta 2.00m de profundidad.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">Comparativa de Profundidad Máxima</h4>
+                        <p class="text-sm text-center text-gray-600 mb-4">La elección del tipo de caja depende directamente de la profundidad de la red de alcantarillado en el punto de instalación.</p>
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="disenoChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mantenimiento" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center text-[#00B4D8] mb-6">🛠️ Mantenimiento: Clave para la Eficiencia</h3>
+                 <p class="text-center mb-8">Un plan de mantenimiento robusto es la mejor inversión para garantizar la longevidad y el funcionamiento óptimo del sistema de alcantarillado, evitando problemas mayores y costosas reparaciones de emergencia.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">Ciclo de Mantenimiento Preventivo</h4>
+                        <p class="text-sm text-center text-gray-600 mb-4">La prevención es fundamental. Realizamos inspecciones visuales trimestrales y limpiezas profundas semestrales para anticiparnos a cualquier problema.</p>
+                        <div class="chart-container h-80">
+                            <canvas id="mantenimientoChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">Tiempos de Respuesta Correctiva</h4>
+                         <p class="text-sm text-center text-gray-600 mb-4">Cuando ocurren emergencias, nuestra respuesta es rápida y priorizada según la gravedad para minimizar el impacto en la comunidad.</p>
+                        <div class="chart-container h-80">
+                            <canvas id="respuestaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impacto" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center text-[#00B4D8] mb-6">🌿 Impacto Ambiental:</h3>
+                <p class="text-center mb-8">El estado de las cajillas de inspección tiene un efecto directo y significativo en nuestro entorno. Un buen mantenimiento es una acción de protección ambiental, mientras que la negligencia causa daños severos.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="border-4 border-green-400 rounded-lg p-6 bg-green-50">
+                        <h4 class="text-xl font-bold text-green-700 mb-4">✅ Impacto Positivo (Mantenimiento Adecuado)</h4>
+                        <ul class="space-y-3 list-disc list-inside">
+                            <li><strong>Prevención de Contaminación:</strong> Evita fugas de aguas residuales que dañan fuentes hídricas y suelos.</li>
+                            <li><strong>Reducción de Riesgos Sanitarios:</strong> Controla la proliferación de plagas y vectores de enfermedades.</li>
+                            <li><strong>Eficiencia en Tratamiento:</strong> Asegura que las aguas lleguen correctamente a las plantas de tratamiento.</li>
+                            <li><strong>Prevención de Inundaciones:</strong> Mantiene la capacidad de drenaje de la red.</li>
+                        </ul>
+                    </div>
+                    <div class="border-4 border-red-400 rounded-lg p-6 bg-red-50">
+                        <h4 class="text-xl font-bold text-red-700 mb-4">❌ Impacto Negativo (Mantenimiento Inadecuado)</h4>
+                        <ul class="space-y-3 list-disc list-inside">
+                            <li><strong>Derrames y Contaminación:</strong> Obstrucciones que causan desbordes, contaminando ríos y generando malos olores.</li>
+                            <li><strong>Emisión de Gases Nocivos:</strong> La descomposición anaeróbica libera metano y sulfuros.</li>
+                            <li><strong>Contaminación Química:</strong> El uso de productos no adecuados puede filtrarse al ambiente.</li>
+                            <li><strong>Riesgos para la Salud Pública:</strong> Exposición directa a aguas residuales crudas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="futuro" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center text-[#00B4D8] mb-6">🗺️ Gestión y Monitoreo para el Futuro</h3>
+                <p class="text-center mb-8">Adoptamos la tecnología para una gestión más eficiente y proactiva. La digitalización de nuestra infraestructura nos permite planificar mejor, responder más rápido y tomar decisiones basadas en datos precisos.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                    <div class="flex-shrink-0 p-4 bg-[#CAF0F8] rounded-full">
+                        <span class="text-4xl">📍</span>
+                    </div>
+                    <div class="flex-grow text-left md:text-center">
+                        <h4 class="font-bold text-lg">Georreferenciación (SIG)</h4>
+                        <p>Cada cajilla es registrada en un Sistema de Información Geográfica con coordenadas precisas.</p>
+                    </div>
+                    <div class="text-2xl font-bold text-[#00B4D8] hidden md:block">&rarr;</div>
+                     <div class="text-2xl font-bold text-[#00B4D8] md:hidden">&darr;</div>
+                    <div class="flex-shrink-0 p-4 bg-[#90E0EF] rounded-full">
+                         <span class="text-4xl">🗃️</span>
+                    </div>
+                     <div class="flex-grow text-left md:text-center">
+                        <h4 class="font-bold text-lg">Base de Datos Detallada</h4>
+                        <p>Mantenemos un registro histórico de cada intervención, estado y características por cajilla.</p>
+                    </div>
+                     <div class="text-2xl font-bold text-[#00B4D8] hidden md:block">&rarr;</div>
+                     <div class="text-2xl font-bold text-[#00B4D8] md:hidden">&darr;</div>
+                     <div class="flex-shrink-0 p-4 bg-[#00B4D8] rounded-full">
+                         <span class="text-4xl">📄</span>
+                    </div>
+                     <div class="flex-grow text-left md:text-center">
+                        <h4 class="font-bold text-lg">Alineación con PSMV</h4>
+                        <p>Nuestras acciones se integran con los Planes de Saneamiento y Manejo de Vertimientos.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-[#0077B6] text-white text-center p-6 mt-12">
+        <p>&copy; 2025 911 S.A.S. Todos los derechos reservados.</p>
+        <div class="flex justify-center items-center mt-2">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="Icono de WhatsApp" class="w-8 h-8 mr-2">
+             <p class="text-lg">3173252598</p>
+        </div>
+        <p>Contáctenos para un diagnóstico y plan de mantenimiento a su medida.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine += ' ' + word;
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const ctxDiseno = document.getElementById('disenoChart');
+            if(ctxDiseno) {
+                new Chart(ctxDiseno, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Caja Tipo 1', 'Caja Tipo 2'],
+                        datasets: [{
+                            label: 'Profundidad Máxima (metros)',
+                            data: [1.00, 2.00],
+                            backgroundColor: ['#90E0EF', '#00B4D8'],
+                            borderColor: ['#0077B6'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        ...defaultChartOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Metros'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const ctxMantenimiento = document.getElementById('mantenimientoChart');
+            if(ctxMantenimiento) {
+                 new Chart(ctxMantenimiento, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Inspección Visual (Trimestral)', 'Limpieza Profunda (Semestral)'],
+                        datasets: [{
+                            label: 'Frecuencia Anual',
+                            data: [4, 2],
+                            backgroundColor: ['#CAF0F8', '#0077B6'],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        ...defaultChartOptions,
+                    }
+                });
+            }
+
+            const ctxRespuesta = document.getElementById('respuestaChart');
+            if(ctxRespuesta) {
+                const originalLabels = ['Destrucción, Reposición de Tapa', 'Reparación Estructural Grave'];
+                const wrappedLabels = originalLabels.map(wrapLabel);
+                
+                new Chart(ctxRespuesta, {
+                    type: 'bar',
+                    data: {
+                        labels: wrappedLabels,
+                        datasets: [{
+                            label: 'Tiempo Máximo de Respuesta (horas)',
+                            data: [24, 72],
+                            backgroundColor: ['#FF8C42', '#FF6B6B'],
+                            borderColor: ['#E85D04'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        ...defaultChartOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Horas'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
